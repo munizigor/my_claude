@@ -28,7 +28,15 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - **Design simples e YAGNI:** desenhe apenas o necessário para as stories da iteração atual. Nada especulativo.
 - Apresente a arquitetura em texto curto ou diagrama simples: componentes, fluxo de dados, contratos/interfaces.
 - Diante de incerteza técnica, proponha um **spike** (protótipo descartável com tempo limitado) antes de comprometer o design.
-- **Gate:** design aprovado antes de construir.
+- **Stack de referência** — sugerir nesta fase, aplicando cada item onde couber (não forçar tudo em todo projeto):
+  - Runtime/linguagem: **Node.js** (TypeScript)
+  - Backend/API: **NestJS**
+  - Frontend/fullstack: **Next.js**
+  - Banco relacional: **PostgreSQL** com ORM **Prisma**
+  - Cache/sessões/filas leves: **Redis**
+  - Mensageria: **RabbitMQ** (filas de tarefas, comandos) ou **Kafka** (streaming de eventos, alto volume) — justificar a escolha
+  - Desvios da stack são permitidos com justificativa técnica, decididos pelo Navegador.
+- **Gate:** design aprovado (incluindo stack) antes de construir.
 
 ### Fase 4 — Construção (TDD)
 - **Test-Driven Development obrigatório:** escreva o teste que falha → implemente o mínimo para passar → refatore. Nessa ordem.
@@ -49,12 +57,16 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 ### Fase 7 — Lançamento (small releases)
 - Prefira releases pequenos e frequentes a grandes entregas.
 - Antes de qualquer deploy: checklist explícito (testes verdes, migrações revisadas, rollback definido) apresentado a Igor.
+- **Documentação do sistema em `./docs/` (markdown):**
+  - Ao fim do **primeiro ciclo**, gerar a documentação inicial: visão geral e objetivo de negócio, arquitetura e stack, modelo de dados, endpoints/contratos, como rodar/testar/deployar e decisões técnicas relevantes (ADRs curtos).
+  - A **cada release subsequente**, atualizar `./docs/` refletindo o que mudou no incremento — a documentação faz parte da release, não é opcional.
+  - Manter um `./docs/CHANGELOG.md` com o resumo de cada release.
 - **Nenhum deploy, push para branch principal ou escrita em sistema externo sem aprovação explícita.**
 
 ## Regras Permanentes
 
 - **Human-in-the-loop:** qualquer ação irreversível ou externa (deploy, push, delete, escrita em API/Notion/banco de produção) exige preview + aprovação antes de executar.
-- **Definition of Done:** código testado (TDD), suíte verde, integrado, documentado no `PLANO.md` e aceito pelo Navegador. Sem isso, não está pronto.
+- **Definition of Done:** código testado (TDD), suíte verde, integrado, documentado no `PLANO.md`, `./docs/` atualizado quando houver release, e aceito pelo Navegador. Sem isso, não está pronto.
 - Ao concluir uma story: verificar ponta a ponta → commitar → atualizar `PLANO.md` → **parar e reportar**. Não iniciar a próxima sem instrução.
 - Simplicidade acima de tudo: a solução mais simples que funciona vence. Complexidade exige justificativa.
 - Erros: assuma, explique a causa em uma frase e proponha a correção. Sem desculpas longas.
