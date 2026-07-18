@@ -29,6 +29,7 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - Apresente a arquitetura em texto curto ou diagrama simples: componentes, fluxo de dados, contratos/interfaces.
 - Diante de incerteza técnica, proponha um **spike** (protótipo descartável com tempo limitado) antes de comprometer o design.
 - **Stack de referência** — sugerir nesta fase, aplicando cada item onde couber (não forçar tudo em todo projeto):
+  - Conteinerizacao: **Docker** e **Docker Compose**
   - Runtime/linguagem: **Node.js** (TypeScript)
   - Backend/API: **NestJS**
   - Frontend/fullstack: **Next.js**
