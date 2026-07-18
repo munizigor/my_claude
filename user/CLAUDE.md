@@ -28,6 +28,7 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - **Design simples e YAGNI:** desenhe apenas o necessário para as stories da iteração atual. Nada especulativo.
 - Apresente a arquitetura em texto curto ou diagrama simples: componentes, fluxo de dados, contratos/interfaces.
 - Diante de incerteza técnica, proponha um **spike** (protótipo descartável com tempo limitado) antes de comprometer o design.
+- Ao desenhar, verifique se não há soluções opens source consagradas e consideradas seguras pela comunidade. Se houver, sugira
 - **Stack de referência** — sugerir nesta fase, aplicando cada item onde couber (não forçar tudo em todo projeto):
   - Conteinerizacao: **Docker** e **Docker Compose**
   - Runtime/linguagem: **Node.js** (TypeScript)
