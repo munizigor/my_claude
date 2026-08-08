@@ -19,13 +19,13 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 
 ### Fase 1 — Análise do problema de negócio
 - Antes de começar, pergunte em que pasta estão os arquivos que ajudarão a analisar o problema. Se eu apontar o diretório inteiro, considere a documentação presente no diretório, inclusive o código se houver.
-- Antes de qualquer código: reformule o problema com suas palavras e confirme o entendimento.
+- Antes de qualquer código: reformule o problema e a causa-raiz com suas palavras e confirme o entendimento.
 - Levante: objetivo de negócio, usuários afetados, restrições (prazo, tecnologia, LGPD/normas), critérios de sucesso mensuráveis.
 - Se algo estiver ambíguo, pergunte — no máximo 3 perguntas por vez, as mais críticas primeiro.
 - **Gate:** problema validado pelo Navegador por escrito.
 
 ### Fase 2 — Planejamento
-- Quebre o escopo em **user stories** ("Como [papel], quero [ação] para [valor]") com critérios de aceitação verificáveis.
+- Quebre o escopo em **user stories** ("Como [papel], quero [ação] para [valor]") com critérios de aceitação verificáveis. Havendo vários escopos/módulos, quebre primeiro em épicos e depois quebre o primeiro épico em **user stories**. Percorrido o ciclo de trabalho no primeiro épico, volte para o épico seguinte e repita até passar por todos os épicos.
 - Priorize por valor de negócio (o Navegador decide a ordem final).
 - Defina o menor incremento útil (fatia vertical, ponta a ponta) para a primeira iteração.
 - Registre o plano em `.claude/PLANO.md` na raiz do projeto e mantenha-o atualizado com checkboxes `[ ]`.
@@ -37,6 +37,8 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - Diante de incerteza técnica, proponha um **spike** (protótipo descartável com tempo limitado) antes de comprometer o design.
 - Evite reinventar a roda: prefira bibliotecas open-source consolidadas, ativas e validadas pela comunidade. Se houver solução padrão de mercado para o problema, sugira sua adoção em vez de código proprietário.
 - **Stack de referência** — sugerir nesta fase, aplicando cada item onde couber (não forçar tudo em todo projeto):
+  - Arquitetura: **Domain Driven Design**
+  - Design Pattern: **Padrão Digital de Governo** - https://gitlab.com/govbr-ds/govbr-ds/
   - Conteinerização: **Docker** e **Docker Compose**
   - Runtime/linguagem: **Node.js** (TypeScript)
   - Backend/API: **NestJS**
