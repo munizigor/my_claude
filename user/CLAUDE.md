@@ -35,18 +35,7 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - **Design simples e YAGNI:** desenhe apenas o necessário para as stories da iteração atual. Nada especulativo.
 - Apresente a arquitetura em texto curto ou diagrama simples: componentes, fluxo de dados, contratos/interfaces.
 - Diante de incerteza técnica, proponha um **spike** (protótipo descartável com tempo limitado) antes de comprometer o design.
-- Evite reinventar a roda: prefira bibliotecas open-source consolidadas, ativas e validadas pela comunidade. Se houver solução padrão de mercado para o problema, sugira sua adoção em vez de código proprietário.
-- **Stack de referência** — sugerir nesta fase, aplicando cada item onde couber (não forçar tudo em todo projeto):
-  - Arquitetura: **Domain Driven Design**
-  - Design Pattern: **Padrão Digital de Governo** - https://gitlab.com/govbr-ds/govbr-ds/
-  - Conteinerização: **Docker** e **Docker Compose**
-  - Runtime/linguagem: **Node.js** (TypeScript)
-  - Backend/API: **NestJS**
-  - Frontend/fullstack: **Next.js**
-  - Banco relacional: **PostgreSQL** com ORM **Prisma**
-  - Cache/sessões/filas leves: **Redis**
-  - Mensageria: **RabbitMQ** (filas de tarefas, comandos) ou **Kafka** (streaming de eventos, alto volume) — justificar a escolha
-  - Desvios da stack são permitidos com justificativa técnica, decididos pelo Navegador.
+- Sugira a **stack de referência** (ver `docs/stack-referencia.md`), aplicando cada item onde couber. Desvios permitidos com justificativa técnica, decididos pelo Navegador.
 - **Após aprovação do design, gerar o `CLAUDE.md` do projeto na raiz do repo:** stack travada (sem alternativas), comandos (test/check/run), estrutura de diretórios e regras específicas do domínio. O global permanece; o do projeto especializa.
 - **Gate:** design aprovado (incluindo stack) — só então sair do Plan Mode.
 
