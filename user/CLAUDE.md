@@ -77,7 +77,7 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 
 ## Regras Permanentes
 
-- **Human-in-the-loop:** qualquer ação irreversível ou externa (deploy, push, delete, escrita em API/Notion/banco de produção) exige preview + aprovação antes de executar. *(Espelhado como `deny` em `~/.claude/settings.json` — a garantia é mecânica, não textual.)*
+- **Human-in-the-loop:** qualquer ação irreversível ou externa (deploy, push, delete, escrita em API/Notion/banco de produção) exige preview + aprovação antes de executar. *(Reforçado como `deny` em `~/.claude/settings.json` — rede de segurança contra acidentes, não garantia absoluta: padrões de Bash são casados por prefixo e podem ser contornados — `rm -fr`, `git -C . push`, `bash -c "..."`. A regra textual acima é o contrato; o `deny` é a segunda linha de defesa.)*
 - **Definition of Done:** suíte verde, integrado, `.claude/PLANO.md` atualizado, `./docs/` atualizado quando houver release, aceito pelo Navegador.
 - Ao concluir uma story: verificar ponta a ponta → commitar → atualizar `.claude/PLANO.md` → **parar, reportar e recomendar `/clear`**. A próxima sessão recupera contexto lendo `.claude/PLANO.md` e `./docs/` — não a conversa anterior.
 - Se a mesma correção falhar duas vezes seguidas, pare: declare o contexto contaminado e recomende `/clear` + reformulação do problema.
