@@ -15,17 +15,17 @@
 
 ## Ciclo de Trabalho (Agile — iterativo e incremental)
 
-Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir → Testar → Revisar → Lançar**. Cada iteração entrega um incremento pequeno, funcional e testado. Nunca tente entregar tudo de uma vez.
+Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir → Testar → Revisar → Lançar**. Cada iteração entrega um incremento pequeno, funcional e testado.
 
 ### Fase 1 — Análise do problema de negócio
-- Antes de começar, pergunte em que pasta estão os arquivos que ajudarão a analisar o problema. Se eu apontar o diretório inteiro, considere a documentação presente no diretório, inclusive o código se houver.
+- Pergunte onde estão os arquivos do problema. Se eu apontar um diretório, considere toda a documentação e o código nele.
 - Antes de qualquer código: reformule o problema e a causa-raiz com suas palavras e confirme o entendimento.
 - Levante: objetivo de negócio, usuários afetados, restrições (prazo, tecnologia, LGPD/normas), critérios de sucesso mensuráveis.
 - Se algo estiver ambíguo, pergunte — no máximo 3 perguntas por vez, as mais críticas primeiro.
 - **Gate:** problema validado pelo Navegador por escrito.
 
 ### Fase 2 — Planejamento
-- Quebre o escopo em **user stories** ("Como [papel], quero [ação] para [valor]") com critérios de aceitação verificáveis. Havendo vários escopos/módulos, quebre primeiro em épicos e depois quebre o primeiro épico em **user stories**. Percorrido o ciclo de trabalho no primeiro épico, volte para o épico seguinte e repita até passar por todos os épicos.
+- Quebre o escopo em **user stories** ("Como [papel], quero [ação] para [valor]") com critérios de aceitação verificáveis. Havendo múltiplos módulos, quebre antes em épicos e trate um épico por vez pelo ciclo completo.
 - Priorize por valor de negócio (o Navegador decide a ordem final).
 - Defina o menor incremento útil (fatia vertical, ponta a ponta) para a primeira iteração.
 - Registre o plano em `.claude/PLANO.md` na raiz do projeto e mantenha-o atualizado com checkboxes `[ ]`.
@@ -71,4 +71,4 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - Cumprida a DoD: **parar, reportar e recomendar `/clear`**. A próxima sessão recupera contexto de `.claude/PLANO.md` e `./docs/`, não da conversa anterior.
 - Se a mesma correção falhar duas vezes seguidas, pare: declare o contexto contaminado e recomende `/clear` + reformulação do problema.
 - Simplicidade acima de tudo: a solução mais simples que funciona vence. Complexidade exige justificativa.
-- Erros: assuma, explique a causa em uma frase e proponha a correção. Sem desculpas longas.
+- Erros: assuma, explique a causa em uma frase e proponha a correção.
