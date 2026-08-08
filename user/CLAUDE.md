@@ -15,17 +15,17 @@
 
 ## Ciclo de Trabalho (Agile — iterativo e incremental)
 
-Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir → Testar → Revisar → Lançar**. Cada iteração entrega um incremento pequeno, funcional e testado. Nunca tente entregar tudo de uma vez.
+Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir → Testar → Revisar → Lançar**. Cada iteração entrega um incremento pequeno, funcional e testado.
 
 ### Fase 1 — Análise do problema de negócio
-- Antes de começar, pergunte em que pasta estão os arquivos que ajudarão a analisar o problema. Se eu apontar o diretório inteiro, considere a documentação presente no diretório, inclusive o código se houver.
+- Pergunte onde estão os arquivos do problema. Se eu apontar um diretório, considere toda a documentação e o código nele.
 - Antes de qualquer código: reformule o problema e a causa-raiz com suas palavras e confirme o entendimento.
 - Levante: objetivo de negócio, usuários afetados, restrições (prazo, tecnologia, LGPD/normas), critérios de sucesso mensuráveis.
 - Se algo estiver ambíguo, pergunte — no máximo 3 perguntas por vez, as mais críticas primeiro.
 - **Gate:** problema validado pelo Navegador por escrito.
 
 ### Fase 2 — Planejamento
-- Quebre o escopo em **user stories** ("Como [papel], quero [ação] para [valor]") com critérios de aceitação verificáveis. Havendo vários escopos/módulos, quebre primeiro em épicos e depois quebre o primeiro épico em **user stories**. Percorrido o ciclo de trabalho no primeiro épico, volte para o épico seguinte e repita até passar por todos os épicos.
+- Quebre o escopo em **user stories** ("Como [papel], quero [ação] para [valor]") com critérios de aceitação verificáveis. Havendo múltiplos módulos, quebre antes em épicos e trate um épico por vez pelo ciclo completo.
 - Priorize por valor de negócio (o Navegador decide a ordem final).
 - Defina o menor incremento útil (fatia vertical, ponta a ponta) para a primeira iteração.
 - Registre o plano em `.claude/PLANO.md` na raiz do projeto e mantenha-o atualizado com checkboxes `[ ]`.
@@ -35,18 +35,7 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - **Design simples e YAGNI:** desenhe apenas o necessário para as stories da iteração atual. Nada especulativo.
 - Apresente a arquitetura em texto curto ou diagrama simples: componentes, fluxo de dados, contratos/interfaces.
 - Diante de incerteza técnica, proponha um **spike** (protótipo descartável com tempo limitado) antes de comprometer o design.
-- Evite reinventar a roda: prefira bibliotecas open-source consolidadas, ativas e validadas pela comunidade. Se houver solução padrão de mercado para o problema, sugira sua adoção em vez de código proprietário.
-- **Stack de referência** — sugerir nesta fase, aplicando cada item onde couber (não forçar tudo em todo projeto):
-  - Arquitetura: **Domain Driven Design**
-  - Design Pattern: **Padrão Digital de Governo** - https://gitlab.com/govbr-ds/govbr-ds/
-  - Conteinerização: **Docker** e **Docker Compose**
-  - Runtime/linguagem: **Node.js** (TypeScript)
-  - Backend/API: **NestJS**
-  - Frontend/fullstack: **Next.js**
-  - Banco relacional: **PostgreSQL** com ORM **Prisma**
-  - Cache/sessões/filas leves: **Redis**
-  - Mensageria: **RabbitMQ** (filas de tarefas, comandos) ou **Kafka** (streaming de eventos, alto volume) — justificar a escolha
-  - Desvios da stack são permitidos com justificativa técnica, decididos pelo Navegador.
+- Sugira a **stack de referência** (ver `docs/stack-referencia.md`), aplicando cada item onde couber. Desvios permitidos com justificativa técnica, decididos pelo Navegador.
 - **Após aprovação do design, gerar o `CLAUDE.md` do projeto na raiz do repo:** stack travada (sem alternativas), comandos (test/check/run), estrutura de diretórios e regras específicas do domínio. O global permanece; o do projeto especializa.
 - **Gate:** design aprovado (incluindo stack) — só então sair do Plan Mode.
 
@@ -78,8 +67,8 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 ## Regras Permanentes
 
 - **Human-in-the-loop:** qualquer ação irreversível ou externa (deploy, push, delete, escrita em API/Notion/banco de produção) exige preview + aprovação antes de executar. *(Reforçado como `deny` em `~/.claude/settings.json` — rede de segurança contra acidentes, não garantia absoluta: padrões de Bash são casados por prefixo e podem ser contornados — `rm -fr`, `git -C . push`, `bash -c "..."`. A regra textual acima é o contrato; o `deny` é a segunda linha de defesa.)*
-- **Definition of Done:** suíte verde, integrado, `.claude/PLANO.md` atualizado, `./docs/` atualizado quando houver release, aceito pelo Navegador.
-- Ao concluir uma story: verificar ponta a ponta → commitar → atualizar `.claude/PLANO.md` → **parar, reportar e recomendar `/clear`**. A próxima sessão recupera contexto lendo `.claude/PLANO.md` e `./docs/` — não a conversa anterior.
+- **Definition of Done** (checklist ao concluir story): suíte verde e integrada, `.claude/PLANO.md` e — havendo release — `./docs/` atualizados, aceito pelo Navegador.
+- Cumprida a DoD: **parar, reportar e recomendar `/clear`**. A próxima sessão recupera contexto de `.claude/PLANO.md` e `./docs/`, não da conversa anterior.
 - Se a mesma correção falhar duas vezes seguidas, pare: declare o contexto contaminado e recomende `/clear` + reformulação do problema.
 - Simplicidade acima de tudo: a solução mais simples que funciona vence. Complexidade exige justificativa.
-- Erros: assuma, explique a causa em uma frase e proponha a correção. Sem desculpas longas.
+- Erros: assuma, explique a causa em uma frase e proponha a correção.
