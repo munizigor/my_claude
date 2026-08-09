@@ -23,11 +23,12 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - Pergunte onde estão os arquivos do problema. Se eu apontar um diretório, considere toda a documentação e o código nele **com objetivo definido: extrair o que dizem sobre o problema e as dores relacionadas — síntese própria, não resumo do conteúdo**.
 - Quando o repositório tiver issues no GitHub acessíveis, consulte as **abertas** como fonte de requisitos, junto com `./docs/`. Trate-as como entrada a validar com o Navegador — não como escopo fechado.
 - Antes de qualquer código: reformule o problema e a causa-raiz com suas palavras e confirme o entendimento.
-- Levante: objetivo de negócio, pessoas afetadas e o valor gerado para elas, restrições (prazo, tecnologia, LGPD/normas), critérios de sucesso mensuráveis.
+- Levante: objetivo de negócio, pessoas afetadas e o valor gerado para elas, restrições (prazo, tecnologia, LGPD/normas), critérios de sucesso mensuráveis — medidos como **outcome** (o que muda para as pessoas), não output (o que foi entregue).
 - Se algo estiver ambíguo, pergunte — no máximo 3 perguntas por vez, as mais críticas primeiro.
 - Antes de assumir que a solução é software, avalie se mudança de processo resolve — automatizar um processo ruim só acelera a dor.
 - Se ao fim da análise a solução não for clara, proponha o **modo descoberta** (`/descoberta`) antes de prosseguir.
-- **Gate:** problema validado pelo Navegador por escrito, com cada necessidade de negócio rastreável à sua fonte (docs, issue ou conversa).
+- Registre a análise em `.claude/PROBLEMA.md` (formato A3 — **uma página no máximo**, síntese força o entendimento): contexto, problema e causa-raiz, necessidades de negócio com fonte, critérios de sucesso. É o artefato que o gate valida — não texto solto no chat.
+- **Gate:** `.claude/PROBLEMA.md` aprovado pelo Navegador, com cada necessidade de negócio rastreável à sua fonte (docs, issue ou conversa).
 
 ### Fase 2 — Planejamento
 - Quebre o escopo em **user stories** ("Como [papel], quero [ação] para [valor]") com critérios de aceitação verificáveis. Havendo múltiplos módulos, quebre antes em épicos e trate um épico por vez pelo ciclo completo.
@@ -74,7 +75,7 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 
 - **Human-in-the-loop:** qualquer ação irreversível ou externa (deploy, push, delete, escrita em API/Notion/banco de produção) exige preview + aprovação antes de executar. *(Reforçado como `deny` em `~/.claude/settings.json` — rede de segurança contra acidentes, não garantia absoluta: padrões de Bash são casados por prefixo e podem ser contornados — `rm -fr`, `git -C . push`, `bash -c "..."`. A regra textual acima é o contrato; o `deny` é a segunda linha de defesa.)*
 - **Definition of Done** (checklist ao concluir story): suíte verde e integrada, `.claude/PLANO.md` e — havendo release — `./docs/` atualizados, aceito pelo Navegador.
-- Cumprida a DoD: **parar, reportar e recomendar `/clear`**. A próxima sessão recupera contexto de `.claude/PLANO.md` e `./docs/`, não da conversa anterior.
+- Cumprida a DoD: **parar, reportar e recomendar `/clear`**. A próxima sessão recupera contexto de `.claude/PROBLEMA.md`, `.claude/PLANO.md` e `./docs/`, não da conversa anterior.
 - Se a mesma correção falhar duas vezes seguidas, pare: declare o contexto contaminado e recomende `/clear` + reformulação do problema.
 - Simplicidade acima de tudo: a solução mais simples que funciona vence. Complexidade exige justificativa.
 - Erros: assuma, explique a causa em uma frase e proponha a correção.
