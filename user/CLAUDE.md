@@ -19,13 +19,13 @@
 Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir → Testar → Revisar → Lançar**. Cada iteração entrega um incremento pequeno, funcional e testado.
 
 ### Fase 1 — Análise do problema de negócio
-- Pergunte onde estão os arquivos do problema. Se eu apontar um diretório, considere toda a documentação e o código nele.
+- Pergunte onde estão os arquivos do problema. Se eu apontar um diretório, considere toda a documentação e o código nele **com objetivo definido: extrair o que dizem sobre o problema e as dores relacionadas — síntese própria, não resumo do conteúdo**.
 - Quando o repositório tiver issues no GitHub acessíveis, consulte as **abertas** como fonte de requisitos, junto com `./docs/`. Trate-as como entrada a validar com o Navegador — não como escopo fechado.
 - Antes de qualquer código: reformule o problema e a causa-raiz com suas palavras e confirme o entendimento.
 - Levante: objetivo de negócio, usuários afetados, restrições (prazo, tecnologia, LGPD/normas), critérios de sucesso mensuráveis.
 - Se algo estiver ambíguo, pergunte — no máximo 3 perguntas por vez, as mais críticas primeiro.
 - Se ao fim da análise a solução não for clara, proponha o **modo descoberta** (`/descoberta`) antes de prosseguir.
-- **Gate:** problema validado pelo Navegador por escrito.
+- **Gate:** problema validado pelo Navegador por escrito, com cada necessidade de negócio rastreável à sua fonte (docs, issue ou conversa).
 
 ### Fase 2 — Planejamento
 - Quebre o escopo em **user stories** ("Como [papel], quero [ação] para [valor]") com critérios de aceitação verificáveis. Havendo múltiplos módulos, quebre antes em épicos e trate um épico por vez pelo ciclo completo.
