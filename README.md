@@ -10,7 +10,9 @@ versionar e reaplicar essas configs entre máquinas.
 .
 ├── user/
 │   ├── CLAUDE.md      # instruções globais → ~/.claude/CLAUDE.md
-│   └── settings.json  # permissões e tema  → ~/.claude/settings.json
+│   ├── settings.json  # permissões e tema  → ~/.claude/settings.json
+│   └── skills/
+│       └── descoberta/  # skill /descoberta → ~/.claude/skills/descoberta/
 └── project/
     └── CLAUDE.md      # template de projeto → <raiz-do-projeto>/CLAUDE.md
 ```
@@ -25,9 +27,10 @@ Vincule os arquivos globais ao diretório `~/.claude` (symlink mantém o repo
 como fonte da verdade; edições passam a versionadas automaticamente):
 
 ```bash
-mkdir -p ~/.claude
-ln -sf "$(pwd)/user/CLAUDE.md"     ~/.claude/CLAUDE.md
-ln -sf "$(pwd)/user/settings.json" ~/.claude/settings.json
+mkdir -p ~/.claude/skills
+ln -sf  "$(pwd)/user/CLAUDE.md"              ~/.claude/CLAUDE.md
+ln -sf  "$(pwd)/user/settings.json"          ~/.claude/settings.json
+ln -sfn "$(pwd)/user/skills/descoberta"      ~/.claude/skills/descoberta
 ```
 
 Prefere copiar em vez de vincular? Troque `ln -sf` por `cp`.
