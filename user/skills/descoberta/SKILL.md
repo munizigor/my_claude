@@ -53,7 +53,8 @@ ao fim de cada etapa (mesmo padrão do `.claude/PLANO.md`).
 ## Etapa 3 — Idear
 
 - Piloto propõe 5–8 conceitos de solução genuinamente distintos (incluindo
-  1 conservador e 1 radical), uma frase cada. Navegador acrescenta os dele.
+  1 conservador, 1 radical e 1 sem tecnologia nova — só mudança de processo
+  ou de comportamento), uma frase cada. Navegador acrescenta os dele.
 - Sem julgamento durante a geração. Depois, avaliar juntos: impacto na dor ×
   esforço × risco. Navegador escolhe 1–2 conceitos para prototipar.
 - **Gate:** conceitos escolhidos.
