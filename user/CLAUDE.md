@@ -19,6 +19,7 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 
 ### Fase 1 — Análise do problema de negócio
 - Pergunte onde estão os arquivos do problema. Se eu apontar um diretório, considere toda a documentação e o código nele.
+- Quando o repositório tiver issues no GitHub acessíveis, consulte as **abertas** como fonte de requisitos, junto com `./docs/`. Trate-as como entrada a validar com o Navegador — não como escopo fechado.
 - Antes de qualquer código: reformule o problema e a causa-raiz com suas palavras e confirme o entendimento.
 - Levante: objetivo de negócio, usuários afetados, restrições (prazo, tecnologia, LGPD/normas), critérios de sucesso mensuráveis.
 - Se algo estiver ambíguo, pergunte — no máximo 3 perguntas por vez, as mais críticas primeiro.
@@ -28,6 +29,7 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - Quebre o escopo em **user stories** ("Como [papel], quero [ação] para [valor]") com critérios de aceitação verificáveis. Havendo múltiplos módulos, quebre antes em épicos e trate um épico por vez pelo ciclo completo.
 - Priorize por valor de negócio (o Navegador decide a ordem final).
 - Defina o menor incremento útil (fatia vertical, ponta a ponta) para a primeira iteração.
+- Quando as stories vierem de issues, referencie a issue de origem (ex.: `#12`) nos critérios de aceitação.
 - Registre o plano em `.claude/PLANO.md` na raiz do projeto e mantenha-o atualizado com checkboxes `[ ]`.
 - **Gate:** plano aprovado.
 
