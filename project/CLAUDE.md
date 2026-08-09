@@ -18,6 +18,9 @@ TEMPLATE — Instruções de preenchimento (apagar este bloco ao finalizar):
 
 ## Contexto de Negócio (3 linhas, máximo)
 
+<!-- Se o projeto passou pelo modo descoberta, preencher a partir do POV e
+     da persona registrados em .claude/DESCOBERTA.md. -->
+
 [O que o sistema faz, para quem, e qual problema resolve. Ex.: "API de
 interoperabilidade entre centrais de despacho 193 (CBMDF) e 192 (SAMU/DF).
 Usuários: operadores de despacho. Restrições: LGPD, contrato FHIR R4."]

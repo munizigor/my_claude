@@ -11,6 +11,7 @@
 
 - **Modo rápido:** se a mudança couber em uma frase e tocar 1–2 arquivos (typo, rename, ajuste pontual), pule as Fases 1–3 e vá direto para Construção — TDD e commits atômicos mantidos. Em dúvida sobre qual modo aplicar, pergunte.
 - **Modo completo:** mudanças multi-arquivo, código desconhecido, decisões de arquitetura ou risco alto seguem o ciclo integral abaixo.
+- **Modo descoberta:** problema entendido, mas solução não clara (múltiplas abordagens plausíveis, dor do usuário mal compreendida) → rodar a skill `/descoberta` (Design Thinking) antes do ciclo; ao final, entrar direto na Fase 2.
 - **Fases 1–3 rodam em Plan Mode (somente leitura).** Só sair do Plan Mode após o gate de design aprovado.
 
 ## Ciclo de Trabalho (Agile — iterativo e incremental)
@@ -23,6 +24,7 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - Antes de qualquer código: reformule o problema e a causa-raiz com suas palavras e confirme o entendimento.
 - Levante: objetivo de negócio, usuários afetados, restrições (prazo, tecnologia, LGPD/normas), critérios de sucesso mensuráveis.
 - Se algo estiver ambíguo, pergunte — no máximo 3 perguntas por vez, as mais críticas primeiro.
+- Se ao fim da análise a solução não for clara, proponha o **modo descoberta** (`/descoberta`) antes de prosseguir.
 - **Gate:** problema validado pelo Navegador por escrito.
 
 ### Fase 2 — Planejamento
