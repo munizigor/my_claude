@@ -14,13 +14,14 @@ user/github/
 ├── setup-labels.sh       # cria/sincroniza labels a partir de labels.json
 ├── setup-project.sh      # cria Project v2 + campos + vincula ao repo
 ├── setup-milestones.sh   # cria milestones (edite a lista antes)
-├── labels.json           # vocabulário padrão de labels (17 + label claude)
+├── labels.json           # vocabulário padrão de labels (12 + label claude)
 └── ruleset-main.json     # política de proteção da main (importar via UI)
 
 project/
 └── .github/
     ├── pull_request_template.md      # checklist TDD + processo
     ├── workflows/ci.yml              # check "test" exigido pelo ruleset
+    ├── workflows/claude.yml          # responde a menções @claude (ver seção)
     └── ISSUE_TEMPLATE/
         ├── funcionalidade.yml        # problema, contexto, critério de aceite
         ├── bug.yml                   # reprodução + severidade
@@ -50,6 +51,10 @@ Depois dele, três passos manuais:
 Cada script roda sozinho se você quiser aplicar só uma parte:
 `./setup-labels.sh OWNER/REPO`, etc.
 
+**Prioridade tem dono único:** o campo **Prioridade** do Project v2, definido
+na triagem. Não existem labels de prioridade; o dropdown "Prioridade sugerida"
+do issue form é só a sugestão de quem abre.
+
 ## Ajustes por projeto
 
 - **`ci.yml`**: o exemplo assume Node/npm; ajuste os comandos à stack do
@@ -57,10 +62,15 @@ Cada script roda sozinho se você quiser aplicar só uma parte:
 - **`config.yml`** dos issue forms: trocar `OWNER/REPO` no link de
   Discussions ou remover o bloco.
 - **`setup-milestones.sh`**: editar a lista de entregas antes de rodar.
-- **Ruleset**: em trabalho solo, reduza `required_approving_review_count`
-  para `0` (o GitHub não deixa aprovar o próprio PR); volte para `1` quando
-  o Claude Code abrir PRs via Action. Rulesets em repositório privado exigem
-  plano pago — alternativa gratuita: Branch protection rules clássicas.
+- **`claude.yml`**: exige o GitHub App do Claude instalado e o secret de
+  autenticação configurado (ver seção "Fluxo @claude" abaixo). Sem isso, o
+  workflow simplesmente nunca dispara — pode ficar no repo sem custo.
+- **Ruleset**: o default é `required_approving_review_count: 0`, que serve o
+  trabalho solo (o GitHub não deixa aprovar o próprio PR). Suba para `1`
+  quando o fluxo `@claude` estiver ativo e os PRs do Claude forem a via
+  principal — você aprova os PRs dele; PRs abertos por você continuam sem
+  auto-aprovação. Rulesets em repositório privado exigem plano pago —
+  alternativa gratuita: Branch protection rules clássicas.
 
 ## Automações do Projects (UI — 2 minutos)
 
@@ -79,10 +89,28 @@ Campo **Status**: `Triagem → Backlog → Em andamento → Em revisão → Done
 Views sugeridas: Board por Status; Tabela filtrada em Triagem ordenada por
 Prioridade; Tabela agrupada por Entrega; Board filtrado por `label:claude`.
 
+## Fluxo @claude (Action)
+
+`project/.github/workflows/claude.yml` responde a menções `@claude` em
+issues, comentários e reviews: o Claude Code roda no Actions, implementa e
+abre PR. O arquivo viaja com `project/` no bootstrap, mas só funciona depois
+de dois pré-requisitos no repositório (uma vez cada):
+
+1. **Caminho fácil:** rode `/install-github-app` no Claude Code do terminal —
+   instala o GitHub App e configura o secret sozinho.
+2. **Manual:** instale o [Claude GitHub App](https://github.com/apps/claude)
+   no repositório e crie o secret `ANTHROPIC_API_KEY`. Assinantes Pro/Max
+   podem usar `CLAUDE_CODE_OAUTH_TOKEN` no lugar (gerado com
+   `claude setup-token`) — ajuste o input correspondente no `claude.yml`.
+
+Com o App ativo, considere subir o ruleset para
+`required_approving_review_count: 1` (ver Ajustes por projeto).
+
 ## O ciclo completo
 
 Issue nasce pelo form → cai em Triagem sozinha → triagem diária de 5 min
 (Prioridade + Esforço; `GG` → quebrar em sub-issues) → issues delegáveis
-recebem `label:claude` e menção `@claude` → PR com `Closes #NN` → ruleset
-segura o merge até check verde + sua aprovação → merge fecha a issue e as
-automações movem tudo para Done.
+recebem `label:claude` e menção `@claude` → a Action implementa e abre PR
+com `Closes #NN` → ruleset segura o merge até check verde (+ sua aprovação,
+com review count em `1`) → merge fecha a issue e as automações movem tudo
+para Done.

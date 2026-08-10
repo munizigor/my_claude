@@ -14,9 +14,5 @@
   { "name": "status: bloqueada", "color": "B60205", "description": "Impedida por dependência externa" },
   { "name": "status: validar-com-usuário", "color": "E99695", "description": "Exige validação com usuário real antes de prosseguir" },
 
-  { "name": "prioridade: alta", "color": "FF0000", "description": "Fazer primeiro" },
-  { "name": "prioridade: média", "color": "FF9800", "description": "Fazer em seguida" },
-  { "name": "prioridade: baixa", "color": "C2E0C6", "description": "Fazer quando houver folga" },
-
   { "name": "claude", "color": "D4C5F9", "description": "Delegada ao Claude Code via @claude" }
 ]
