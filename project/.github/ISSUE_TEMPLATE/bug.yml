@@ -1,0 +1,50 @@
+name: 🐛 Bug
+description: Relatar um comportamento incorreto
+title: "[Bug]: "
+labels: ["tipo: bug", "status: triagem"]
+body:
+  - type: textarea
+    id: comportamento-atual
+    attributes:
+      label: O que está acontecendo
+      description: Descreva o comportamento incorreto observado.
+    validations:
+      required: true
+
+  - type: textarea
+    id: comportamento-esperado
+    attributes:
+      label: O que deveria acontecer
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproducao
+    attributes:
+      label: Passos para reproduzir
+      placeholder: |
+        1. Acesse...
+        2. Clique em...
+        3. Observe que...
+    validations:
+      required: true
+
+  - type: textarea
+    id: ambiente
+    attributes:
+      label: Ambiente
+      description: Versão, navegador, sistema, dados relevantes.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: severidade
+    attributes:
+      label: Severidade
+      options:
+        - "Crítica — bloqueia o uso"
+        - "Alta — funcionalidade importante afetada"
+        - "Média — há contorno possível"
+        - "Baixa — cosmético"
+    validations:
+      required: true
