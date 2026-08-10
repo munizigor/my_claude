@@ -43,7 +43,7 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - Apresente a arquitetura em texto curto ou diagrama simples: componentes, fluxo de dados, contratos/interfaces.
 - Diante de incerteza técnica, proponha um **spike** (protótipo descartável com tempo limitado) antes de comprometer o design.
 - Sugira a **stack de referência** (ver `docs/stack-referencia.md`), aplicando cada item onde couber. Desvios permitidos com justificativa técnica, decididos pelo Navegador.
-- **Após aprovação do design, gerar o `CLAUDE.md` do projeto na raiz do repo:** stack travada (sem alternativas), comandos (test/check/run), estrutura de diretórios e regras específicas do domínio. O global permanece; o do projeto especializa.
+- **Após aprovação do design, gerar o `CLAUDE.md` do projeto em `.claude/CLAUDE.md`** (preenchendo o template copiado pelo bootstrap, se existir — nunca criar um segundo na raiz): stack travada (sem alternativas), comandos (test/check/run), estrutura de diretórios e regras específicas do domínio. O global permanece; o do projeto especializa.
 - **Gate:** design aprovado (incluindo stack) — só então sair do Plan Mode.
 
 ### Fase 4 — Construção (TDD)
