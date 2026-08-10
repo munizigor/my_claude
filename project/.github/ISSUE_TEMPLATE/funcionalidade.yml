@@ -55,6 +55,7 @@ body:
     id: prioridade
     attributes:
       label: Prioridade sugerida
+      description: Sugestão de quem abre a issue. A prioridade oficial é o campo Prioridade do Project, definido na triagem.
       options:
         - Alta
         - Média

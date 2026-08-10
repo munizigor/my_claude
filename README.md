@@ -1,8 +1,11 @@
 # my_claude
 
-Repositório com minhas configurações do Claude Code: `CLAUDE.md` de usuário
-(global), template de `CLAUDE.md` de projeto e `settings.json`. Serve para
-versionar e reaplicar essas configs entre máquinas.
+Meu sistema de trabalho com o Claude Code — não só configurações, mas o modo
+de trabalhar completo: contrato de pareamento e ciclo com gates (`CLAUDE.md`
+global), skill de descoberta (Design Thinking), template de `CLAUDE.md` de
+projeto, stack de referência e fundação GitHub (templates de issue/PR, CI,
+ruleset e scripts de bootstrap). Versionado para reaplicar entre máquinas e
+repositórios.
 
 ## Estrutura
 

@@ -67,7 +67,7 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - Prefira releases pequenos e frequentes a grandes entregas.
 - Antes de qualquer deploy: checklist explícito (testes verdes, migrações revisadas, rollback definido) apresentado ao Navegador.
 - **Documentação do sistema em `./docs/` (markdown):**
-  - Ao fim do **primeiro ciclo**, gerar a documentação inicial: visão geral e objetivo de negócio, arquitetura e stack, modelo de dados, endpoints/contratos, como rodar/testar/deployar e decisões técnicas relevantes (ADRs curtos).
+  - Ao fim do **primeiro ciclo**, gerar a documentação inicial: visão geral e objetivo de negócio, processo de negócio suportado (`./docs/processo-negocio.md` — o fluxo das pessoas que o sistema atende; é o arquivo referenciado nos templates de issue e PR), arquitetura e stack, modelo de dados, endpoints/contratos, como rodar/testar/deployar e decisões técnicas relevantes (ADRs curtos).
   - A **cada release subsequente**, atualizar a documentação refletindo o que mudou — a documentação faz parte da release, não é opcional.
   - Manter `./docs/CHANGELOG.md` com o resumo de cada release.
 
