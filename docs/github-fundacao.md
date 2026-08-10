@@ -1,15 +1,15 @@
-# Fundação GitHub — user/github/ e project/.github/
+# Fundação GitHub — user/.github/ e project/.github/
 
 Artefatos do my_claude, na mesma divisão do repositório:
-**user/github/** = políticas e ferramentas suas (valem para qualquer
-repositório; executadas a partir do clone do my_claude — não são
-symlinkadas para `~/.claude`);
-**project/** = artefatos commitados em cada repositório novo.
+**user/.github/** = políticas e ferramentas suas (valem para qualquer
+repositório; executadas a partir do clone do my_claude — nada aqui é
+instalado em `~/`);
+**project/** = espelho da raiz de um repositório novo, commitado em cada um.
 
 ## Estrutura
 
 ```
-user/github/
+user/.github/
 ├── bootstrap.sh          # aplica tudo num repositório novo (um comando)
 ├── setup-labels.sh       # cria/sincroniza labels a partir de labels.json
 ├── setup-project.sh      # cria Project v2 + campos + vincula ao repo
@@ -18,6 +18,8 @@ user/github/
 └── ruleset-main.json     # política de proteção da main (importar via UI)
 
 project/
+├── .claude/
+│   └── CLAUDE.md                     # template de memória do projeto (Fase 3)
 └── .github/
     ├── pull_request_template.md      # checklist TDD + processo
     ├── workflows/ci.yml              # check "test" exigido pelo ruleset
@@ -31,19 +33,20 @@ project/
 ## Uso — repositório novo (caminho rápido)
 
 ```bash
-cd my_claude/user/github
+cd my_claude/user/.github
 gh auth refresh -s project     # só na primeira vez
 
 ./bootstrap.sh OWNER/REPO ~/caminho/do/clone
 ```
 
-O bootstrap copia `project/` para o clone, cria labels, milestones e o
-Project v2. Atenção: a cópia inclui o `project/CLAUDE.md` (template com
-placeholders, preenchido no gate da Fase 3 do ciclo — ver `user/CLAUDE.md`).
+O bootstrap copia `project/` para o clone — o repo de destino nasce com o
+layout final: `.github/` completo e `.claude/CLAUDE.md` (template com
+placeholders, preenchido no gate da Fase 3 do ciclo — ver
+`user/.claude/CLAUDE.md`; o Claude Code lê esse caminho nativamente).
 Depois dele, três passos manuais:
 
 1. Revisar, commitar e fazer push dos arquivos copiados.
-2. Importar `user/github/ruleset-main.json`: Settings → Rules → Rulesets → Import.
+2. Importar `user/.github/ruleset-main.json`: Settings → Rules → Rulesets → Import.
 3. Ativar as automações do Projects (⋯ → Workflows) e criar as views.
 
 ## Uso — passo a passo avulso

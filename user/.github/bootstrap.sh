@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Bootstrap de repositório novo: copia os artefatos de project/ e aplica
-# labels, milestones e Project v2 usando as ferramentas de user/github/.
+# labels, milestones e Project v2 usando as ferramentas de user/.github/.
 #
 # Uso:   ./bootstrap.sh OWNER/REPO /caminho/do/clone/local
 # Exemplo: ./bootstrap.sh igor/meu-projeto ~/dev/meu-projeto
 #
 # Requisitos: gh autenticado (com escopo project: gh auth refresh -s project) e jq.
-# Rodar a partir da pasta user/github/ do my_claude.
+# Rodar a partir da pasta user/.github/ do my_claude.
 
 set -euo pipefail
 
@@ -34,5 +34,5 @@ read -rp "Nome do projeto no Projects [Gestão de Trabalho]: " TITLE
 echo
 echo "✔ Bootstrap concluído. Passos manuais restantes:"
 echo "  1. Commit + push dos arquivos copiados em $LOCAL"
-echo "  2. Importar user/github/ruleset-main.json: Settings → Rules → Rulesets → Import"
+echo "  2. Importar user/.github/ruleset-main.json: Settings → Rules → Rulesets → Import"
 echo "  3. Ativar workflows do Projects e criar as views (ver LEIA-ME)"
