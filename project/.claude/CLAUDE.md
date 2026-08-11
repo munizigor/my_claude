@@ -84,6 +84,21 @@ src/
 - `api`: contract tests contra o schema OpenAPI
 - CI bloqueia merge com cobertura global < [85]% ou suíte vermelha
 
+## Execução Delegada (@claude via Actions)
+
+<!-- Seção fixa do template — manter em todo projeto. Ela existe porque no
+     CI o CLAUDE.md global do usuário NÃO carrega (é da máquina local); estas
+     são as regras mínimas do contrato que precisam sobreviver lá. -->
+
+Quando esta sessão roda sem o Navegador presente (issue delegada com menção
+`@claude`, execução em Actions):
+
+- **O escopo é a issue:** o critério de aceite é o contrato. Nada além dele.
+- TDD e suíte verde continuam obrigatórios; cole a saída dos testes no PR.
+- Entregue em PR pequeno com `Closes #NN`; nunca commite direto na main.
+- Ambiguidade no critério de aceite → comente na issue perguntando e pare.
+  Não assuma; a resposta vira nova execução.
+
 ## O que NUNCA fazer (específico deste projeto)
 
 - Não editar migrações já aplicadas; sempre criar nova migração.
