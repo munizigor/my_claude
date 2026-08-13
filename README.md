@@ -2,10 +2,10 @@
 
 Meu sistema de trabalho com o Claude Code — não só configurações, mas o modo
 de trabalhar completo: contrato de pareamento e ciclo com gates (`CLAUDE.md`
-global), skill de descoberta (Design Thinking), template de `CLAUDE.md` de
-projeto, stack de referência e fundação GitHub (templates de issue/PR, CI,
-ruleset e scripts de bootstrap). Versionado para reaplicar entre máquinas e
-repositórios.
+global), skills de descoberta (Design Thinking) e de processo (mapa decisório
+AS-IS/TO-BE), template de `CLAUDE.md` de projeto, stack de referência e fundação
+GitHub (templates de issue/PR, CI, ruleset e scripts de bootstrap). Versionado
+para reaplicar entre máquinas e repositórios.
 
 ## Estrutura
 
@@ -19,7 +19,8 @@ e `project/` é a imagem da raiz de um repositório novo.
 │   │   ├── CLAUDE.md      # instruções globais
 │   │   ├── settings.json  # permissões e tema
 │   │   └── skills/
-│   │       └── descoberta/  # skill /descoberta
+│   │       ├── descoberta/  # skill /descoberta
+│   │       └── processo/    # skill /processo
 │   └── .github/       # scripts gh + labels/ruleset (rodam daqui; nada instala)
 ├── project/           # espelho da raiz de um repo novo (copiado no bootstrap)
 │   ├── .claude/
@@ -45,6 +46,7 @@ mkdir -p ~/.claude/skills
 ln -sf  "$(pwd)/user/.claude/CLAUDE.md"          ~/.claude/CLAUDE.md
 ln -sf  "$(pwd)/user/.claude/settings.json"      ~/.claude/settings.json
 ln -sfn "$(pwd)/user/.claude/skills/descoberta"  ~/.claude/skills/descoberta
+ln -sfn "$(pwd)/user/.claude/skills/processo"    ~/.claude/skills/processo
 ```
 
 Prefere copiar em vez de vincular? Troque `ln -sf` por `cp`.
