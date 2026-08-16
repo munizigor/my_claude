@@ -21,20 +21,20 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 
 ### Fase 1 — Análise do problema de negócio
 - Pergunte onde estão os arquivos do problema. Se eu apontar um diretório, considere toda a documentação e o código nele **com objetivo definido: extrair o que dizem sobre o problema e as dores relacionadas — síntese própria, não resumo do conteúdo**.
-- Quando o repositório tiver issues no GitHub acessíveis, consulte as **abertas** como fonte de requisitos, junto com `./docs/`. Trate-as como entrada a validar com o Navegador — não como escopo fechado.
+- Use `./docs/` como fonte de requisitos. Trate o que estiver lá como entrada a validar com o Navegador — não como escopo fechado.
 - Antes de qualquer código: reformule o problema e a causa-raiz com suas palavras e confirme o entendimento.
 - Levante: objetivo de negócio, pessoas afetadas e o valor gerado para elas, restrições (prazo, tecnologia, LGPD/normas), critérios de sucesso mensuráveis — medidos como **outcome** (o que muda para as pessoas), não output (o que foi entregue).
 - Se algo estiver ambíguo, pergunte — no máximo 3 perguntas por vez, as mais críticas primeiro.
 - Antes de assumir que a solução é software, avalie se mudança de processo resolve — automatizar um processo ruim só acelera a dor.
 - Se ao fim da análise a solução não for clara, proponha o **modo descoberta** (`/descoberta`) antes de prosseguir.
 - Registre a análise em `.claude/PROBLEMA.md` (formato A3 — **uma página no máximo**, síntese força o entendimento): contexto, problema e causa-raiz, necessidades de negócio com fonte, critérios de sucesso. É o artefato que o gate valida — não texto solto no chat.
-- **Gate:** `.claude/PROBLEMA.md` aprovado pelo Navegador, com cada necessidade de negócio rastreável à sua fonte (docs, issue ou conversa).
+- **Gate:** `.claude/PROBLEMA.md` aprovado pelo Navegador, com cada necessidade de negócio rastreável à sua fonte (docs ou conversa).
 
 ### Fase 2 — Planejamento
 - Quebre o escopo em **user stories** ("Como [papel], quero [ação] para [valor]") com critérios de aceitação verificáveis. Havendo múltiplos módulos, quebre antes em épicos e trate um épico por vez pelo ciclo completo.
 - Priorize por valor de negócio (o Navegador decide a ordem final).
 - Defina o menor incremento útil (fatia vertical, ponta a ponta) para a primeira iteração.
-- Quando as stories vierem de issues, referencie a issue de origem (ex.: `#12`) nos critérios de aceitação.
+- Cada story cita a fonte da necessidade que a originou (arquivo em `./docs/` ou decisão do Navegador) nos critérios de aceitação.
 - Registre o plano em `.claude/PLANO.md` na raiz do projeto e mantenha-o atualizado com checkboxes `[ ]`.
 - **Gate:** plano aprovado.
 
@@ -43,7 +43,7 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - Apresente a arquitetura em texto curto ou diagrama simples: componentes, fluxo de dados, contratos/interfaces.
 - Diante de incerteza técnica, proponha um **spike** (protótipo descartável com tempo limitado) antes de comprometer o design.
 - Sugira a **stack de referência** (ver `docs/stack-referencia.md`), aplicando cada item onde couber. Desvios permitidos com justificativa técnica, decididos pelo Navegador.
-- **Após aprovação do design, gerar o `CLAUDE.md` do projeto em `.claude/CLAUDE.md`** (preenchendo o template copiado pelo bootstrap, se existir — nunca criar um segundo na raiz): stack travada (sem alternativas), comandos (test/check/run), estrutura de diretórios e regras específicas do domínio. O global permanece; o do projeto especializa.
+- **Após aprovação do design, gerar o `CLAUDE.md` do projeto em `.claude/CLAUDE.md`** (preenchendo o template de `.claude/CLAUDE.md`, se já houver um no projeto — nunca criar um segundo na raiz): stack travada (sem alternativas), comandos (test/check/run), estrutura de diretórios e regras específicas do domínio. O global permanece; o do projeto especializa.
 - **Gate:** design aprovado (incluindo stack) — só então sair do Plan Mode.
 
 ### Fase 4 — Construção (TDD)
@@ -67,7 +67,7 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - Prefira releases pequenos e frequentes a grandes entregas.
 - Antes de qualquer deploy: checklist explícito (testes verdes, migrações revisadas, rollback definido) apresentado ao Navegador.
 - **Documentação do sistema em `./docs/` (markdown):**
-  - Ao fim do **primeiro ciclo**, gerar a documentação inicial: visão geral e objetivo de negócio, processo de negócio suportado (`./docs/processo-negocio.md` — o fluxo das pessoas que o sistema atende; é o arquivo referenciado nos templates de issue e PR), arquitetura e stack, modelo de dados, endpoints/contratos, como rodar/testar/deployar e decisões técnicas relevantes (ADRs curtos).
+  - Ao fim do **primeiro ciclo**, gerar a documentação inicial: visão geral e objetivo de negócio, processo de negócio suportado (`./docs/processo-negocio.md` — o fluxo das pessoas que o sistema atende), arquitetura e stack, modelo de dados, endpoints/contratos, como rodar/testar/deployar e decisões técnicas relevantes (ADRs curtos).
   - A **cada release subsequente**, atualizar a documentação refletindo o que mudou — a documentação faz parte da release, não é opcional.
   - Manter `./docs/CHANGELOG.md` com o resumo de cada release.
 

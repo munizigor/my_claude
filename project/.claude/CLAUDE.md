@@ -82,7 +82,7 @@ src/
 - `application`: unit com fakes/mocks de ports — [90]%
 - `infrastructure`: integração com banco real via testcontainers
 - `api`: contract tests contra o schema OpenAPI
-- CI bloqueia merge com cobertura global < [85]% ou suíte vermelha
+- `npm run check` falha (e bloqueia o commit) com cobertura global < [85]% ou suíte vermelha
 
 ## O que NUNCA fazer (específico deste projeto)
 

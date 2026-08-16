@@ -3,8 +3,7 @@
 Meu sistema de trabalho com o Claude Code — não só configurações, mas o modo
 de trabalhar completo: contrato de pareamento e ciclo com gates (`CLAUDE.md`
 global), skill de descoberta (Design Thinking), template de `CLAUDE.md` de
-projeto, stack de referência e fundação GitHub (templates de issue/PR, CI,
-ruleset e scripts de bootstrap). Versionado para reaplicar entre máquinas e
+projeto e stack de referência. Versionado para reaplicar entre máquinas e
 repositórios.
 
 ## Estrutura
@@ -15,25 +14,22 @@ e `project/` é a imagem da raiz de um repositório novo.
 ```
 .
 ├── user/
-│   ├── .claude/       # espelho de ~/.claude/ (instalado via symlink)
-│   │   ├── CLAUDE.md      # instruções globais
-│   │   ├── settings.json  # permissões e tema
-│   │   └── skills/
-│   │       └── descoberta/  # skill /descoberta
-│   └── .github/       # scripts gh + labels/ruleset (rodam daqui; nada instala)
-├── project/           # espelho da raiz de um repo novo (copiado no bootstrap)
-│   ├── .claude/
-│   │   └── CLAUDE.md  # template de memória do projeto (preenchido na Fase 3)
-│   └── .github/       # templates de issue/PR + workflows de CI e @claude
-└── docs/              # referências (stack, fundação GitHub)
+│   └── .claude/       # espelho de ~/.claude/ (instalado via symlink)
+│       ├── CLAUDE.md      # instruções globais
+│       ├── settings.json  # permissões e tema
+│       └── skills/
+│           └── descoberta/  # skill /descoberta
+├── project/           # espelho da raiz de um repo novo (copiado à mão)
+│   └── .claude/
+│       ├── CLAUDE.md      # template de memória do projeto (preenchido na Fase 3)
+│       └── settings.json  # permissões do projeto
+└── docs/              # referências (stack)
 ```
 
 - **`user/.claude/`** — configuração global, aplicada a todas as sessões.
-- **`user/.github/`** — exceção ao espelho: ferramentas executadas a partir
-  deste repositório, nada é instalado em `~/`.
-- **`project/`** — copiado para cada repositório novo pelo bootstrap; o
-  `CLAUDE.md` especializa o global (não repete o que já está lá) e o Claude
-  Code o lê nativamente em `.claude/CLAUDE.md`.
+- **`project/`** — copiado para cada repositório novo; o `CLAUDE.md`
+  especializa o global (não repete o que já está lá) e o Claude Code o lê
+  nativamente em `.claude/CLAUDE.md`.
 
 ## Instalação
 
@@ -49,22 +45,12 @@ ln -sfn "$(pwd)/user/.claude/skills/descoberta"  ~/.claude/skills/descoberta
 
 Prefere copiar em vez de vincular? Troque `ln -sf` por `cp`.
 
-Para um novo projeto sem passar pelo bootstrap, copie só o template:
+Para um projeto novo, copie os artefatos de `project/` para a raiz do
+repositório:
 
 ```bash
-mkdir -p /caminho/do/projeto/.claude
-cp project/.claude/CLAUDE.md /caminho/do/projeto/.claude/CLAUDE.md
+cp -r project/. /caminho/do/projeto/
 ```
 
-## Fundação GitHub
-
-Para preparar um repositório novo com labels, milestones, Project v2,
-templates de issue/PR e CI, use o bootstrap (requer `gh` autenticado e `jq`):
-
-```bash
-cd user/.github
-./bootstrap.sh OWNER/REPO /caminho/do/clone/local
-```
-
-Fluxo completo, passos manuais (ruleset, automações do Projects) e ajustes
-por projeto: ver [`docs/github-fundacao.md`](docs/github-fundacao.md).
+O `.claude/CLAUDE.md` copiado é um template — preencha-o no gate da Fase 3
+(design aprovado), conforme as instruções no próprio arquivo.
