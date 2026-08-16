@@ -35,7 +35,7 @@ tramitação média, 30% de retrabalho por devolução."]
 A entrega é o processo funcionando melhor — medido em quem o opera, não o
 documento que o descreve. O ciclo completo vai até a implantação; um projeto
 pode parar no gate do desenho quando implantar não estiver ao nosso alcance —
-decisão do Navegador, registrada em `PLANO.md`.
+decisão do Navegador, registrada em `.claude/PLANO.md`.
 
 ### Entender (complementa o global) — empatia obrigatória
 - **Quem opera o processo é ouvido antes de o processo ser mapeado.** Piloto
