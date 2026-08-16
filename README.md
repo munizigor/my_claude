@@ -51,7 +51,11 @@ ln -sf  "$(pwd)/user/.claude/CLAUDE.md"          ~/.claude/CLAUDE.md
 ln -sf  "$(pwd)/user/.claude/settings.json"      ~/.claude/settings.json
 ln -sfn "$(pwd)/user/.claude/skills/descoberta"  ~/.claude/skills/descoberta
 ln -sfn "$(pwd)/user/.claude/skills/processo"    ~/.claude/skills/processo
+ln -sfn "$(pwd)/tipos"                           ~/.claude/tipos
 ```
+
+O último symlink torna os templates alcançáveis de qualquer sessão — é por ele
+que o contrato copia o tipo no início de um projeto.
 
 Prefere copiar em vez de vincular? Troque `ln -sf` por `cp`.
 

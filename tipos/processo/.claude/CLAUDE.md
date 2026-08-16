@@ -7,6 +7,8 @@ bloco ao finalizar):
 - Copiado para a raiz do projeto no início do trabalho: o método abaixo já vale
   desde a primeira sessão. As seções entre [colchetes] são preenchidas quando a
   informação existir — nunca inventadas.
+- Este é o ÚNICO CLAUDE.md do projeto — nunca criar outro na raiz (nem via
+  /init).
 - Este arquivo ESPECIALIZA o contrato global (~/.claude/CLAUDE.md) — não repita
   nada que já está lá (pareamento, ciclo, gates, /clear). O mapeamento em si
   (R1/R2/R3, formato dos nós, Mermaid, antipadrões de mapa) vive na skill
@@ -20,6 +22,9 @@ bloco ao finalizar):
 -->
 
 ## Contexto de Negócio (3 linhas, máximo)
+
+<!-- Se o projeto passou pelo modo descoberta, preencher a partir do POV e
+     da persona registrados em .claude/DESCOBERTA.md. -->
 
 [Qual processo, quem o opera, qual dor. Ex.: "Fluxo de autorização de despesa
 da diretoria X. Operadores: 4 analistas e 2 ordenadores. Dor: 40 dias de
@@ -48,7 +53,7 @@ decisão do Navegador, registrada em `PLANO.md`.
   A escuta do Entender alimenta o AS-IS: dor relatada entra no nó em que ocorre.
 - AS-IS validado por quem opera, sempre que possível — não só pelo Navegador.
 - Nó com solução não clara → `/descoberta`, levando o "Como poderíamos…?".
-- **Gate:** TO-BE aprovado — só então sair do Plan Mode.
+- **Gate:** TO-BE aprovado.
 
 ### Planejar — pacotes de mudança
 - Incremento = **pacote de mudança** implantável ponta a ponta: revisão de uma

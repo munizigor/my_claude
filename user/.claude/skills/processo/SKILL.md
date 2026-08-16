@@ -6,7 +6,8 @@ description: Modo processo — usar quando a dor está no processo de negócio, 
 # Modo Processo (Mapa Decisório AS-IS / TO-BE)
 
 Entender **como o trabalho é decidido hoje** e redesenhá-lo, antes de decidir se
-a solução é software. Roda em Plan Mode (somente leitura). Pressupõe o
+a solução é software. Roda em Plan Mode (somente leitura, fora os artefatos do
+ciclo). Pressupõe o
 **Entender** cumprido: `.claude/PROBLEMA.md` aprovado.
 
 São mapas **decisórios**, não fluxogramas de tarefa: o objeto é *onde alguém
