@@ -76,10 +76,8 @@ repetir em outro projeto, viramos um tipo novo — nunca antes.
 ## Regras Permanentes
 
 - **Human-in-the-loop:** ação irreversível ou externa (deploy, push, delete,
-  escrita em API ou banco de produção) exige preview + aprovação antes de
-  executar. *(Reforçado como `deny` em `~/.claude/settings.json` — segunda linha
-  de defesa, não garantia: padrões de Bash casam por prefixo e podem ser
-  contornados. O contrato é esta regra.)*
+  escrita em API ou banco de produção) exige preview + aprovação. O `deny` em
+  `settings.json` é rede, não garantia — o contrato é esta regra.
 - **Definition of Done:** critérios de aceitação verificados com evidência,
   `.claude/PLANO.md` atualizado, aceito por você.
 - Cumprida a DoD: **parar, reportar e recomendar `/clear`**. A próxima sessão
