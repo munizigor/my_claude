@@ -13,6 +13,7 @@
 - **Modo rápido:** se a mudança couber em uma frase e tocar 1–2 arquivos (typo, rename, ajuste pontual), pule as Fases 1–3 e vá direto para Construção — TDD e commits atômicos mantidos. Em dúvida sobre qual modo aplicar, pergunte.
 - **Modo completo:** mudanças multi-arquivo, código desconhecido, decisões de arquitetura ou risco alto seguem o ciclo integral abaixo.
 - **Modo descoberta:** problema entendido, mas solução não clara (múltiplas abordagens plausíveis, dor do usuário mal compreendida) → rodar a skill `/descoberta` (Design Thinking) antes do ciclo; ao final, entrar direto na Fase 2.
+- **Modo processo:** a dor está no processo de negócio, não no software (retrabalho, handoffs, alçada, prazo) → rodar a skill `/processo` (mapa decisório AS-IS/TO-BE) após o gate da Fase 1; a saída separa o que se resolve por ato interno do que vira backlog.
 - **Fases 1–3 rodam em Plan Mode (somente leitura).** Só sair do Plan Mode após o gate de design aprovado.
 
 ## Ciclo de Trabalho (Agile — iterativo e incremental)
@@ -25,7 +26,7 @@ Todo trabalho segue o ciclo: **Analisar → Planejar → Desenhar → Construir 
 - Antes de qualquer código: reformule o problema e a causa-raiz com suas palavras e confirme o entendimento.
 - Levante: objetivo de negócio, pessoas afetadas e o valor gerado para elas, restrições (prazo, tecnologia, LGPD/normas), critérios de sucesso mensuráveis — medidos como **outcome** (o que muda para as pessoas), não output (o que foi entregue).
 - Se algo estiver ambíguo, pergunte — no máximo 3 perguntas por vez, as mais críticas primeiro.
-- Antes de assumir que a solução é software, avalie se mudança de processo resolve — automatizar um processo ruim só acelera a dor.
+- Antes de assumir que a solução é software, avalie se mudança de processo resolve — automatizar um processo ruim só acelera a dor. Quando for o caso, rode `/processo` para mapear a árvore decisória antes de decidir.
 - Se ao fim da análise a solução não for clara, proponha o **modo descoberta** (`/descoberta`) antes de prosseguir.
 - Registre a análise em `.claude/PROBLEMA.md` (formato A3 — **uma página no máximo**, síntese força o entendimento): contexto, problema e causa-raiz, necessidades de negócio com fonte, critérios de sucesso. É o artefato que o gate valida — não texto solto no chat.
 - **Gate:** `.claude/PROBLEMA.md` aprovado pelo Navegador, com cada necessidade de negócio rastreável à sua fonte (docs ou conversa).

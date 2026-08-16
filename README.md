@@ -2,9 +2,16 @@
 
 Meu sistema de trabalho com o Claude Code — não só configurações, mas o modo
 de trabalhar completo: contrato de pareamento e ciclo com gates (`CLAUDE.md`
+<<<<<<< HEAD
 global), skill de descoberta (Design Thinking), template de `CLAUDE.md` de
 projeto e stack de referência. Versionado para reaplicar entre máquinas e
 repositórios.
+=======
+global), skills de descoberta (Design Thinking) e de processo (mapa decisório
+AS-IS/TO-BE), template de `CLAUDE.md` de projeto, stack de referência e fundação
+GitHub (templates de issue/PR, CI, ruleset e scripts de bootstrap). Versionado
+para reaplicar entre máquinas e repositórios.
+>>>>>>> a524fcdcdac06316869e72a3b1924b5b9afedcce
 
 ## Estrutura
 
@@ -14,6 +21,7 @@ e `project/` é a imagem da raiz de um repositório novo.
 ```
 .
 ├── user/
+<<<<<<< HEAD
 │   └── .claude/       # espelho de ~/.claude/ (instalado via symlink)
 │       ├── CLAUDE.md      # instruções globais
 │       ├── settings.json  # permissões e tema
@@ -24,6 +32,20 @@ e `project/` é a imagem da raiz de um repositório novo.
 │       ├── CLAUDE.md      # template de memória do projeto (preenchido na Fase 3)
 │       └── settings.json  # permissões do projeto
 └── docs/              # referências (stack)
+=======
+│   ├── .claude/       # espelho de ~/.claude/ (instalado via symlink)
+│   │   ├── CLAUDE.md      # instruções globais
+│   │   ├── settings.json  # permissões e tema
+│   │   └── skills/
+│   │       ├── descoberta/  # skill /descoberta
+│   │       └── processo/    # skill /processo
+│   └── .github/       # scripts gh + labels/ruleset (rodam daqui; nada instala)
+├── project/           # espelho da raiz de um repo novo (copiado no bootstrap)
+│   ├── .claude/
+│   │   └── CLAUDE.md  # template de memória do projeto (preenchido na Fase 3)
+│   └── .github/       # templates de issue/PR + workflows de CI e @claude
+└── docs/              # referências (stack, fundação GitHub)
+>>>>>>> a524fcdcdac06316869e72a3b1924b5b9afedcce
 ```
 
 - **`user/.claude/`** — configuração global, aplicada a todas as sessões.
@@ -41,6 +63,7 @@ mkdir -p ~/.claude/skills
 ln -sf  "$(pwd)/user/.claude/CLAUDE.md"          ~/.claude/CLAUDE.md
 ln -sf  "$(pwd)/user/.claude/settings.json"      ~/.claude/settings.json
 ln -sfn "$(pwd)/user/.claude/skills/descoberta"  ~/.claude/skills/descoberta
+ln -sfn "$(pwd)/user/.claude/skills/processo"    ~/.claude/skills/processo
 ```
 
 Prefere copiar em vez de vincular? Troque `ln -sf` por `cp`.
