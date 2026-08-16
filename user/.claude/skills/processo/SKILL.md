@@ -157,9 +157,11 @@ Obrigatórios no documento:
 
 Com o TO-BE aprovado, o Piloto separa os nós redesenhados em três destinos:
 
-1. **Ato interno** — revisão de R2 ou eliminação de R3, sem software. Sai do
-   ciclo e vira a lista nominal de normas a revisar. Nem todo problema pede
-   tecnologia; este é o resultado mais barato que existe.
+1. **Ato interno** — revisão de R2 ou eliminação de R3, sem software. Nem todo
+   problema pede tecnologia; este é o resultado mais barato que existe. Quando
+   a entrega do projeto é o próprio processo (tipo processo), estes nós viram
+   os pacotes de mudança do Planejar; caso contrário, saem do ciclo como lista
+   nominal de normas a revisar.
 2. **Software com solução clara** → **Planejar**: cada nó automatizado vira um
    incremento, com o KPI do nó como critério de aceitação.
 3. **Software com solução não clara** → **`/descoberta`**, levando o nó

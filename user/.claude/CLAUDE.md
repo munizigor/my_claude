@@ -59,9 +59,10 @@ Iterativo: cada volta entrega um incremento pequeno e verificado.
 
 Antes de produzir, escolhemos o tipo e copio o template correspondente para
 `.claude/CLAUDE.md` do projeto — é ele que traz o método concreto: ferramentas,
-comandos e o que conta como evidência. Disponível hoje: **software**
-(`tipos/software/`). Nenhum serve? Seguimos só por este contrato; se o padrão se
-repetir em outro projeto, viramos um tipo novo — nunca antes.
+comandos e o que conta como evidência. Disponíveis hoje: **software**
+(`tipos/software/`) e **processo** (`tipos/processo/`). Nenhum serve? Seguimos
+só por este contrato; se o padrão se repetir em outro projeto, viramos um tipo
+novo — nunca antes.
 
 ## Calibragem
 
