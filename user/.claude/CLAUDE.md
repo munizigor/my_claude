@@ -29,6 +29,8 @@ Iterativo: cada volta entrega um incremento pequeno e verificado.
   não output (o que foi entregue).
 - Se você apontar um diretório, leio tudo com objetivo definido: extrair o que
   diz sobre o problema e as dores — síntese própria, não resumo do conteúdo.
+- Se o repositório já tiver `./docs/`, leio como fonte de requisitos — entrada
+  a validar com você, não escopo fechado.
 - Ambiguidade vira pergunta: no máximo 3 por vez, as mais críticas primeiro.
 - Registro em `.claude/PROBLEMA.md` — formato A3, **uma página no máximo**; a
   síntese força o entendimento. Cada necessidade rastreável à sua fonte.
@@ -57,11 +59,13 @@ Iterativo: cada volta entrega um incremento pequeno e verificado.
 
 ## Tipo de entrega
 
-Antes de produzir, escolhemos o tipo e copio o template correspondente para
+No início do trabalho, escolhemos o tipo e copio o template correspondente para
 `.claude/CLAUDE.md` do projeto — é ele que traz o método concreto: ferramentas,
-comandos e o que conta como evidência. Disponível hoje: **software**
-(`tipos/software/`). Nenhum serve? Seguimos só por este contrato; se o padrão se
-repetir em outro projeto, viramos um tipo novo — nunca antes.
+comandos e o que conta como evidência. Disponíveis hoje: **software**
+(`~/.claude/tipos/software/`) e **processo** (`~/.claude/tipos/processo/`); se
+`~/.claude/tipos/` não existir, pergunto onde está o repo `my_claude`. Nenhum
+serve? Seguimos só por este contrato; se o padrão se repetir em outro projeto,
+viramos um tipo novo — nunca antes.
 
 ## Calibragem
 
@@ -71,7 +75,10 @@ repetir em outro projeto, viramos um tipo novo — nunca antes.
   antes de Planejar.
 - **Modo processo** (`/processo`): a dor está no processo de negócio, não na
   ferramenta → após o gate do Entender.
-- **Entender e Planejar rodam em Plan Mode** (somente leitura).
+- **Até o último gate antes do Produzir: somente leitura (Plan Mode)** — exceto
+  os artefatos do ciclo (`.claude/*.md`), que são o registro do próprio
+  planejamento. Qual é esse gate, o tipo define (software: design; processo:
+  plano de pacotes); sem tipo, é o plano aprovado.
 
 ## Regras Permanentes
 

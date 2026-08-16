@@ -10,11 +10,14 @@ bloco ao finalizar):
 - Este arquivo ESPECIALIZA o contrato global (~/.claude/CLAUDE.md) — não repita
   nada que já está lá (pareamento, ciclo, gates, /clear). Instrução duplicada
   consome atenção do modelo e cria conflito de versão.
+- Este é o ÚNICO CLAUDE.md do projeto — nunca criar outro na raiz (nem via
+  /init).
 - Aqui entra o método de software (invariante entre projetos deste tipo) e o
   que é ESPECÍFICO deste projeto e ESTÁVEL entre sessões. Decisão de iteração
   vai em .claude/PLANO.md; documentação extensa vai em ./docs/ (referencie,
   não cole).
-- Se passar de ~120 linhas, mova conteúdo para ./docs/ e deixe só o ponteiro.
+- Se o arquivo preenchido (comentários apagados) passar de ~120 linhas, mova
+  conteúdo para ./docs/ e deixe só o ponteiro.
 - Durante a construção, `#` no início de uma mensagem grava correções aqui sem
   editar na mão.
 -->
@@ -28,7 +31,7 @@ bloco ao finalizar):
 interoperabilidade entre centrais de despacho 193 (CBMDF) e 192 (SAMU/DF).
 Usuários: operadores de despacho. Restrições: LGPD, contrato FHIR R4."]
 
-## Método — o que Planejar, Produzir e Entregar significam aqui
+## Método — o que cada etapa do ciclo significa aqui
 
 ### Planejar
 - Incrementos são **user stories**: "Como [papel], quero [ação] para [valor]",
@@ -41,7 +44,7 @@ Usuários: operadores de despacho. Restrições: LGPD, contrato FHIR R4."]
 - Incerteza técnica → **spike**: protótipo descartável, com tempo limitado,
   antes de comprometer o design.
 - Preencher aqui a stack travada e os comandos. **Gate:** design e stack
-  aprovados — só então sair do Plan Mode.
+  aprovados — a partir daqui começa o Produzir.
 
 ### Produzir — TDD obrigatório
 - Escreva o teste que falha → **mostre a saída falhando** → implemente o mínimo
@@ -81,16 +84,11 @@ Usuários: operadores de despacho. Restrições: LGPD, contrato FHIR R4."]
 
 Desvio desta stack = parar e consultar o Navegador. Não sugerir troca.
 
-<!-- Ponto de partida para o gate de design — aplicar onde couber, não forçar
-     tudo em todo projeto; desvio com justificativa técnica, decidido pelo
-     Navegador: arquitetura DDD; Padrão Digital de Governo
-     (https://gitlab.com/govbr-ds/govbr-ds/); Docker + Compose; Node.js
-     (TypeScript); NestJS (API); Next.js (frontend/fullstack); PostgreSQL +
-     Prisma; Redis (cache/sessões/filas leves); RabbitMQ (filas de tarefas) ou
-     Kafka (streaming, alto volume) — justificar a escolha.
-     Não reinventar a roda: preferir biblioteca open-source consolidada, ativa e
-     validada pela comunidade; havendo solução padrão de mercado, sugeri-la em
-     vez de código proprietário. -->
+<!-- Ponto de partida (aplicar onde couber; desvio decidido pelo Navegador):
+     DDD; Padrão Digital de Governo (gitlab.com/govbr-ds/govbr-ds); Docker +
+     Compose; Node.js/TypeScript; NestJS (API); Next.js (front); PostgreSQL +
+     Prisma; Redis; RabbitMQ (filas) ou Kafka (streaming) — justificar. Não
+     reinventar a roda: preferir open-source consolidado a código próprio. -->
 
 ## Comandos
 

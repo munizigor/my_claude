@@ -6,7 +6,8 @@ description: Modo descoberta (Design Thinking) — usar quando o problema é ent
 # Modo Descoberta (Design Thinking)
 
 Processo para descobrir **qual** solução construir, antes do ciclo normal de
-trabalho. Roda em Plan Mode (somente leitura). Pressupõe o **Entender**
+trabalho. Roda em Plan Mode (somente leitura, fora os artefatos do ciclo e os
+protótipos descartáveis da Etapa 4). Pressupõe o **Entender**
 cumprido: o problema já está validado; o que falta é a solução.
 
 ## Quando usar / não usar
