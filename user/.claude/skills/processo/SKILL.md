@@ -6,8 +6,8 @@ description: Modo processo — usar quando a dor está no processo de negócio, 
 # Modo Processo (Mapa Decisório AS-IS / TO-BE)
 
 Entender **como o trabalho é decidido hoje** e redesenhá-lo, antes de decidir se
-a solução é software. Roda em Plan Mode (somente leitura). Pressupõe a Fase 1
-cumprida: `.claude/PROBLEMA.md` aprovado.
+a solução é software. Roda em Plan Mode (somente leitura). Pressupõe o
+**Entender** cumprido: `.claude/PROBLEMA.md` aprovado.
 
 São mapas **decisórios**, não fluxogramas de tarefa: o objeto é *onde alguém
 decide algo* — quem decide, com base em quê, o que muda em cada ramo. Tarefa
@@ -21,7 +21,7 @@ de uma vez:** TO-BE sobre AS-IS não validado propaga erro.
   justificativa de uma etapa.
 - **Não usar:** processo já mapeado e estável — ir direto ao ciclo. Solução
   desconhecida mas processo irrelevante é `/descoberta`. Incerteza apenas
-  *técnica* de solução já escolhida é **spike** (Fase 3).
+  *técnica* de solução já escolhida é **spike**.
 - **Combina com `/descoberta`, não compete:** `/processo` responde *como o
   trabalho é decidido hoje*; `/descoberta`, *qual solução construir*.
 
@@ -37,7 +37,7 @@ de uma vez:** TO-BE sobre AS-IS não validado propaga erro.
 Registro em `.claude/PROCESSO.md`, atualizado ao fim de cada etapa (mesmo padrão
 do `.claude/PLANO.md`).
 
-## Fase 0 — Enquadramento
+## Etapa 0 — Enquadramento
 
 Atores, restrições, objetivo e critérios de sucesso são **lidos de
 `.claude/PROBLEMA.md`** — não os levante de novo. Falta estabelecer:
@@ -160,12 +160,12 @@ Com o TO-BE aprovado, o Piloto separa os nós redesenhados em três destinos:
 1. **Ato interno** — revisão de R2 ou eliminação de R3, sem software. Sai do
    ciclo e vira a lista nominal de normas a revisar. Nem todo problema pede
    tecnologia; este é o resultado mais barato que existe.
-2. **Software com solução clara** → **Fase 2**: cada nó automatizado vira user
-   story, com o KPI do nó como critério de aceitação.
+2. **Software com solução clara** → **Planejar**: cada nó automatizado vira um
+   incremento, com o KPI do nó como critério de aceitação.
 3. **Software com solução não clara** → **`/descoberta`**, levando o nó
    reformulado como "Como poderíamos…?".
 
 Feche `.claude/PROCESSO.md` com AS-IS validado, TO-BE, roadmap e a bifurcação.
-Havendo destino 2, o ciclo recomeça na Fase 2 — a Fase 1 já foi cumprida antes
-da skill. Na Fase 7, o TO-BE aprovado é a fonte de `./docs/processo-negocio.md`:
-escreva-o a partir daqui, não do zero.
+Havendo destino 2, o ciclo recomeça no Planejar — o Entender já foi cumprido
+antes da skill. Sendo a entrega software, o TO-BE aprovado é a fonte de
+`./docs/processo-negocio.md` na release: escreva-o a partir daqui, não do zero.

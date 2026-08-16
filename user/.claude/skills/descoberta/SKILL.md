@@ -1,13 +1,13 @@
 ---
 name: descoberta
-description: Modo descoberta (Design Thinking) — usar quando o problema é entendido mas a solução não é clara. Conduz Empatizar → Definir → Idear → Prototipar → Testar com papéis Piloto/Navegador explícitos; a saída alimenta a Fase 2 do ciclo e o CLAUDE.md do projeto.
+description: Modo descoberta (Design Thinking) — usar quando o problema é entendido mas a solução não é clara. Conduz Empatizar → Definir → Idear → Prototipar → Testar com papéis Piloto/Navegador explícitos; a saída alimenta o Planejar do ciclo e o CLAUDE.md do projeto.
 ---
 
 # Modo Descoberta (Design Thinking)
 
 Processo para descobrir **qual** solução construir, antes do ciclo normal de
-trabalho. Roda em Plan Mode (somente leitura). Pressupõe a Fase 1 cumprida:
-o problema já está validado; o que falta é a solução.
+trabalho. Roda em Plan Mode (somente leitura). Pressupõe o **Entender**
+cumprido: o problema já está validado; o que falta é a solução.
 
 ## Quando usar / não usar
 
@@ -15,7 +15,7 @@ o problema já está validado; o que falta é a solução.
   plausíveis; dor do usuário mal compreendida.
 - **Não usar:** solução já conhecida ou determinada por restrição externa
   (contrato, norma) — ir direto ao ciclo normal. Incerteza apenas *técnica*
-  de uma solução já escolhida é caso de **spike** (Fase 3), não de descoberta.
+  de uma solução já escolhida é caso de **spike**, não de descoberta.
 
 ## Papéis
 
@@ -87,8 +87,7 @@ Com o gate final aprovado, o Piloto entrega:
    (e por quê) e solução validada.
 2. Insumos para o `CLAUDE.md` do projeto: o Contexto de Negócio (3 linhas)
    sai direto do POV + persona.
-3. Handoff para a **Fase 2** do ciclo normal: as hipóteses validadas viram
-   as primeiras user stories.
+3. Handoff para o **Planejar** do ciclo normal: as hipóteses validadas viram
+   os primeiros incrementos.
 
-O ciclo recomeça na Fase 2 (Planejamento) — a Fase 1 já foi cumprida pela
-descoberta.
+O ciclo recomeça no Planejar — o Entender já foi cumprido pela descoberta.
