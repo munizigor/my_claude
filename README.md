@@ -1,57 +1,44 @@
 # my_claude
 
-Meu sistema de trabalho com o Claude Code — não só configurações, mas o modo
-de trabalhar completo: contrato de pareamento e ciclo com gates (`CLAUDE.md`
-<<<<<<< HEAD
-global), skill de descoberta (Design Thinking), template de `CLAUDE.md` de
-projeto e stack de referência. Versionado para reaplicar entre máquinas e
-repositórios.
-=======
-global), skills de descoberta (Design Thinking) e de processo (mapa decisório
-AS-IS/TO-BE), template de `CLAUDE.md` de projeto, stack de referência e fundação
-GitHub (templates de issue/PR, CI, ruleset e scripts de bootstrap). Versionado
-para reaplicar entre máquinas e repositórios.
->>>>>>> a524fcdcdac06316869e72a3b1924b5b9afedcce
+Meu sistema de trabalho com o Claude Code. Duas camadas, só isso:
+
+- **O contrato** (`user/.claude/CLAUDE.md`) — como trabalhamos, independente do
+  que está sendo entregue: papéis, ciclo Entender → Planejar → Produzir →
+  Entregar, gates de aprovação e regras permanentes. Vale para software,
+  documento, processo ou decisão.
+- **O tipo de entrega** (`tipos/<tipo>/`) — o método concreto: ferramentas,
+  comandos e o que conta como evidência. Copiado para a raiz do projeto no
+  início do trabalho.
+
+Se uma instrução vale para qualquer entrega, é contrato. Se só faz sentido com
+uma ferramenta na mão, é tipo. Nada é duplicado entre os dois.
 
 ## Estrutura
 
-As pastas espelham o destino real: `user/.claude/` é a imagem de `~/.claude/`
-e `project/` é a imagem da raiz de um repositório novo.
+As pastas espelham o destino real: `user/.claude/` é a imagem de `~/.claude/` e
+`tipos/software/` é a imagem da raiz de um repositório novo.
 
 ```
 .
 ├── user/
-<<<<<<< HEAD
-│   └── .claude/       # espelho de ~/.claude/ (instalado via symlink)
-│       ├── CLAUDE.md      # instruções globais
-│       ├── settings.json  # permissões e tema
+│   └── .claude/           # espelho de ~/.claude/ (instalado via symlink)
+│       ├── CLAUDE.md          # o contrato
+│       ├── settings.json      # permissões e tema
 │       └── skills/
-│           └── descoberta/  # skill /descoberta
-├── project/           # espelho da raiz de um repo novo (copiado à mão)
-│   └── .claude/
-│       ├── CLAUDE.md      # template de memória do projeto (preenchido na Fase 3)
-│       └── settings.json  # permissões do projeto
-└── docs/              # referências (stack)
-=======
-│   ├── .claude/       # espelho de ~/.claude/ (instalado via symlink)
-│   │   ├── CLAUDE.md      # instruções globais
-│   │   ├── settings.json  # permissões e tema
-│   │   └── skills/
-│   │       ├── descoberta/  # skill /descoberta
-│   │       └── processo/    # skill /processo
-│   └── .github/       # scripts gh + labels/ruleset (rodam daqui; nada instala)
-├── project/           # espelho da raiz de um repo novo (copiado no bootstrap)
-│   ├── .claude/
-│   │   └── CLAUDE.md  # template de memória do projeto (preenchido na Fase 3)
-│   └── .github/       # templates de issue/PR + workflows de CI e @claude
-└── docs/              # referências (stack, fundação GitHub)
->>>>>>> a524fcdcdac06316869e72a3b1924b5b9afedcce
+│           ├── descoberta/    # /descoberta — Design Thinking
+│           └── processo/      # /processo — mapa decisório AS-IS/TO-BE
+└── tipos/
+    └── software/          # espelho da raiz de um repo novo (copiado à mão)
+        └── .claude/
+            ├── CLAUDE.md      # método de software + memória do projeto
+            └── settings.json  # permissões do projeto
 ```
 
-- **`user/.claude/`** — configuração global, aplicada a todas as sessões.
-- **`project/`** — copiado para cada repositório novo; o `CLAUDE.md`
-  especializa o global (não repete o que já está lá) e o Claude Code o lê
-  nativamente em `.claude/CLAUDE.md`.
+Existe um tipo só porque existe um tipo só em uso. O segundo nasce de um projeto
+real que pediu — extraído do que funcionou, nunca desenhado por antecipação.
+
+Skill é procedimento que se roda (`/descoberta`, `/processo`); `CLAUDE.md` é
+memória permanente. É esse o critério para decidir onde algo novo entra.
 
 ## Instalação
 
@@ -68,12 +55,12 @@ ln -sfn "$(pwd)/user/.claude/skills/processo"    ~/.claude/skills/processo
 
 Prefere copiar em vez de vincular? Troque `ln -sf` por `cp`.
 
-Para um projeto novo, copie os artefatos de `project/` para a raiz do
-repositório:
+Para um projeto novo, copie o tipo de entrega para a raiz do repositório:
 
 ```bash
-cp -r project/. /caminho/do/projeto/
+cp -r tipos/software/. /caminho/do/projeto/
 ```
 
-O `.claude/CLAUDE.md` copiado é um template — preencha-o no gate da Fase 3
-(design aprovado), conforme as instruções no próprio arquivo.
+O `.claude/CLAUDE.md` copiado já traz o método valendo desde a primeira sessão;
+as seções entre `[colchetes]` são preenchidas no gate de design, antes da
+primeira linha de código.
