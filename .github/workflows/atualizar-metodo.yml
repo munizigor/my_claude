@@ -1,0 +1,59 @@
+name: Atualizar o método
+
+# Reutilizável. Cada projeto chama este workflow pelo seu .github/workflows/metodo.yml (modelo em
+# modelos/comum/). Copia o método do my_claude para o projeto e, se algo mudou, abre um PR.
+# O chamador precisa dar contents: write e pull-requests: write, e o repositório precisa
+# permitir que o GitHub Actions abra PRs (Settings > Actions > General).
+on:
+  workflow_call:
+    inputs:
+      ref:
+        description: Versão do my_claude a trazer (branch, etiqueta ou commit).
+        type: string
+        default: main
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Trazer o my_claude
+        uses: actions/checkout@v4
+        with:
+          repository: munizigor/my_claude
+          ref: ${{ inputs.ref }}
+          path: .my_claude
+
+      - name: Copiar o método
+        run: |
+          bash .my_claude/ferramentas/instalar_metodo.sh .my_claude .
+          echo "ORIGEM=$(git -C .my_claude rev-parse --short HEAD)" >> "$GITHUB_ENV"
+          rm -rf .my_claude
+
+      - name: Abrir o PR, se mudou
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PRINCIPAL: ${{ github.event.repository.default_branch }}
+        run: |
+          if [ -z "$(git status --porcelain -- .claude)" ]; then
+            echo "O método já está em dia."
+            exit 0
+          fi
+          versao=$(cat .claude/metodo.versao)
+          branch="metodo-$versao"
+          if git ls-remote --exit-code --heads origin "$branch" > /dev/null; then
+            echo "A branch $branch já existe; o PR desta versão já foi aberto."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c "$branch"
+          git add .claude
+          git commit -q -m "Atualiza o método ($versao)" \
+            -m "Cópia de munizigor/my_claude@$ORIGEM, trazida pelo workflow Método. Mudanças no método se fazem lá, não aqui."
+          git push -q origin "$branch"
+          gh pr create --base "$PRINCIPAL" --head "$branch" \
+            --title "Atualiza o método ($versao)" \
+            --body "Nova versão do método (skills e \`.claude/metodo.md\`), de [munizigor/my_claude@$ORIGEM](https://github.com/munizigor/my_claude/commit/$ORIGEM). Confira o diff: se o método passou a pedir algo que este projeto não tem, ajuste a ficha no \`CLAUDE.md\` neste mesmo PR. O merge é do Navegador."

@@ -1,7 +1,7 @@
 # Catálogo de padrões de redesenho
 
 Consultado na Etapa 2 da skill `/processo`. Percorra a lista inteira: aplique o
-que couber justificando, e registre o que descartou e por quê — descarte
+que couber justificando, e registre o que descartou e por quê: descarte
 silencioso vira ponto cego. A coluna "R2 típica" indica qual norma interna
 costuma travar o padrão; é ali que a proposta de mudança precisa mirar.
 
@@ -26,9 +26,9 @@ costuma travar o padrão; é ali que a proposta de mudança precisa mirar.
   vezes por ano, automatizar é custo. Padronização e poka-yoke normalmente
   entregam mais barato que automação.
 - **Rebaixar alçada nunca atravessa competência indelegável (R1).** Se a
-  competência é do titular por lei, o padrão a usar é decisão por exceção — não
+  competência é do titular por lei, o padrão a usar é decisão por exceção, não
   delegação.
 - **Antecipar gate antes de paralelizar.** Paralelizar etapas que serão
   descartadas por uma reprovação tardia multiplica o desperdício.
-- **Todo padrão aplicado gera KPI.** Sem indicador, o redesenho não é
+- **Todo padrão aplicado gera indicador.** Sem indicador, o redesenho não é
   verificável e a onda seguinte não tem benchmark de disparo.
