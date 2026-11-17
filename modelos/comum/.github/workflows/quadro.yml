@@ -1,0 +1,15 @@
+name: Quadro
+
+# Mantém as etiquetas do quadro: cria as que faltarem, põe status:ideias no cartão aberto sem
+# coluna e status:feito no cartão fechado. A lógica mora em munizigor/my_claude.
+on:
+  issues:
+    types: [opened, closed]
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  quadro:
+    uses: munizigor/my_claude/.github/workflows/quadro.yml@main

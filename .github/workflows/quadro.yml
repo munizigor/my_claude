@@ -1,0 +1,50 @@
+name: Quadro
+
+# Reutilizável. Cada projeto chama este workflow pelo seu .github/workflows/quadro.yml (modelo em
+# modelos/comum/), com issues: write. Cria as etiquetas do método que faltarem e mantém a
+# etiqueta de coluna (status:*) junto com as automações do GitHub Projects: cartão novo entra em
+# "Ideias" e cartão fechado vai para "Feito". A coluna fica com o próprio quadro; aqui só a etiqueta.
+on:
+  workflow_call:
+
+jobs:
+  etiquetas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Etiquetas do método
+        run: |
+          existentes=$(gh label list --limit 300 --json name --jq '.[].name')
+          while IFS='|' read -r nome cor descricao; do
+            printf '%s\n' "$existentes" | grep -qxF "$nome" && continue
+            gh label create "$nome" --color "$cor" --description "$descricao" || true
+          done <<'FIM'
+          status:ideias|d0d7de|Coluna Ideias do quadro
+          status:a-fazer|0969da|Coluna A fazer do quadro
+          status:próximo|d4a72c|Coluna Próximo do quadro
+          status:fazendo|1a7f37|Coluna Fazendo do quadro
+          status:feito|8250df|Coluna Feito do quadro
+          produto|0e8a16|Frente produto
+          negócio|5319e7|Frente negócio
+          decisão|fbca04|Decisão a tomar
+          bloqueado|b60205|Depende de algo que ainda não pode andar
+          FIM
+
+      - name: Etiqueta de coluna
+        if: github.event_name == 'issues'
+        env:
+          ACAO: ${{ github.event.action }}
+          NUMERO: ${{ github.event.issue.number }}
+        run: |
+          atuais=$(jq -r '[.issue.labels[].name | select(startswith("status:"))] | join("\n")' "$GITHUB_EVENT_PATH")
+          if [ "$ACAO" = opened ]; then
+            # quem já abriu o cartão numa coluna decidiu; só os sem etiqueta de coluna vão para Ideias
+            [ -z "$atuais" ] && gh issue edit "$NUMERO" --add-label status:ideias
+          elif [ "$ACAO" = closed ]; then
+            outras=$(printf '%s\n' "$atuais" | grep -vx 'status:feito' | paste -sd, -)
+            gh issue edit "$NUMERO" --add-label status:feito ${outras:+--remove-label "$outras"}
+          fi
+          true

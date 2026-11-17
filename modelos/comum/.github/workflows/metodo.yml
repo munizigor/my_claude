@@ -1,0 +1,17 @@
+name: Método
+
+# Toda segunda de manhã, traz a versão nova do método (skills e .claude/metodo.md) de
+# munizigor/my_claude e abre um PR quando algo mudou. O merge continua com o Navegador.
+# Precisa de Settings > Actions > General > "Allow GitHub Actions to create and approve pull requests".
+on:
+  schedule:
+    - cron: '23 10 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  atualizar:
+    uses: munizigor/my_claude/.github/workflows/atualizar-metodo.yml@main

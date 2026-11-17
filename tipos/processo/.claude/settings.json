@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "deny": [
-      "Read(./_archive/**)",
-      "Glob(./_archive/**)",
-      "Grep(./_archive/**)"
-    ]
-  }
-}
