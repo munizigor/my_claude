@@ -67,6 +67,7 @@ Português do Brasil, sem travessão. Parágrafos corridos; tópicos só quando 
 ## Disciplina
 
 - Bom design é pouco design: começar pela menor versão que entrega o valor e, na dúvida, tirar. Complexidade exige justificativa. Não generalizar antes de existir o segundo caso.
+- Preferência de uma pessoa não muda o padrão de todos: primeiro mostrar como o que já existe atende; se não atender, a personalização mínima, reaproveitando uma escolha que já exista antes de criar outra.
 - Toda funcionalidade diz a qual resultado do documento de negócio serve e como saberemos que funcionou. O que só deixa mais bonito fica para depois.
 - Decisão de negócio tomada: registrar a data e o resultado em "Decisões tomadas" no documento de negócio, fechar o cartão da decisão e ajustar os cartões que ela muda, no mesmo PR.
 - A mesma correção falhando duas vezes seguidas: parar, declarar o contexto contaminado e recomendar `/clear` com o problema reformulado.
